@@ -7,7 +7,7 @@ import logging
 from fiConfig import * 
 from fiLog import *
 from threading import current_thread
-
+import random
 # FIXME: Add this to the list of dependencies for this module
 from sklearn.neighbors import KNeighborsClassifier	
 from sklearn.utils.extmath import softmax
@@ -616,10 +616,10 @@ def injectFaultExpandDims(a, b):
 	if logReturn: logging.debug("\tReturning from ExpandDims " + str(res) )
 	return res
 
-def injectFaultPack(a, b):
+def injectFaultPack(a):
 	"Function to call injectFault on Pack"
 	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Pack" + getArgs(a, b))
+	logging.debug("Calling Operator Pack" + getArgs(a))
 	# res = np.stack(a, b)
 	# FIXME: This throws an exception, so we dummied it out
 	res = a
@@ -804,276 +804,7 @@ def injectFaultRandomUniform(a):
 #### If you implement any of them, please move them above the line              ####
 #####          Otherwise, they will all raise NotImplementedError(OpName)       ####3
  
-def injectFaultDynamicStitch(inputs):
-	"Function to call injectFault on Dynamic stitch"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Dynamic stitch ") 
-	raise NotImplementedError("DynamicStitch")	
 
-def injectFaultFloorDiv(inputs):
-	"Function to call injectFault on FloorDiv"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator FloorDiv ") 
-	raise NotImplementedError("FloorDiv")	
-
-def injectFaultTile(inputs):
-	"Function to call injectFault on Tile"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Tile")
-	raise NotImplementedError("Tile")	
-
-def injectFaultConcatOffset(inputs):
-	"Function to call injectFault on ConcatOffset"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ConcatOffset")
-	raise NotImplementedError("ConcatOffset")	
-
-def injectFaultSplit(inputs):
-	"Function to call injectFault on Split"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Split")
-	raise NotImplementedError("Split")	
-
-def injectFaultSoftmaxCEWL(inputs):
-	"Function to call injectFault on Softmax CEWL"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator SoftmaxCEWL")
-	raise NotImplementedError("SoftmaCEWL")	
-
-def injectFaultSlice(inputs):
-	"Function to call injectFault on Slice"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Slice")
-	raise NotImplementedError("Slice")	
-
-def injectFaultBroadcastGA(inputs):
-	"Function to call injectFault on Broadcast gradient args"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator BroadcastGA")
-	raise NotImplementedError("BroadcastGA")	
-
-def injectFaultTruncatedNormal(a):
-	"Function to call injectFault on TruncatedNormal"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator TruncatedNormal") # + str(a))
-	raise NotImplementedError("TruncatedNormal")
-
-def injectFaultRandomUniformInt(a):
-	"Function to call injectFault on Random Uniform Int"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator RandomUniformInt")
-	raise NotImplementedError("RandomUniformInt")
-
-def injectFaultRandomStandardNormal(a):
-	"Function to call injectFault on Random Standard Normal"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator RandomStandardNormal")
-	raise NotImplementedError("RandomStandardNormal")
-
-def injectFaultRefSwitch(a):
-	"Function to call injectFault on RefSwitch"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator RefSwitch")
-	raise NotImplementedError("RefSwitch")
-
-def injectFaultProd(a):
-	"Function to call injectFault on Prod"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Prod")
-	raise NotImplementedError("Prod")
-
-def injectFaultUnique(a):
-	"Function to call injectFault on Unique"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Unique")
-	raise NotImplementedError("Unique")
-
-def injectFaultReciprocal(a):
-	"Function to call injectFault on Reciprocal"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Reciprocal")
-	raise NotImplementedError("Reciprocal")
-
-def injectFaultScatterAdd(a):
-	"Function to call injectFault on ScatterAdd"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ScatterAdd")
-	raise NotImplementedError("ScatterAdd")
-
-def injectFaultReluGrad(a):
-	"Function to call injectFault on ReluGrad"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ReluGrad")
-	raise NotImplementedError("ReluGrad")
-
-def injectFaultMaxPoolGrad(a):
-	"Function to call injectFault on MaxPoolGrad"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator MaxPoolGrad")
-	raise NotImplementedError("MaxPoolGrad")
-
-def injectFaultTanhGrad(a):
-	"Function to call injectFault on TanhGrad"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator TanhGrad")
-	raise NotImplementedError("TanhGrad")
-
-def injectFaultSigmoidGrad(a):
-	"Function to call injectFault on SigmoidGrad"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator SigmoidGrad")
-	raise NotImplementedError("SigmoidGrad")
-
-def injectFaultBiasAddGrad(a):
-	"Function to call injectFault on BiasAddGrad"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator BiasAddGrad")
-	raise NotImplementedError("BiasAddGrad")
-
-def injectFaultShapeN(inputs):
-	"Function to call injectFault on ShapeN"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ShapeN")
-	raise NotImplementedError("ShapeN")
-
-def injectFaultAddN(inputs):
-	"Function to call injectFault on AddN"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator AddN")
-	raise NotImplementedError("AddN")
-
-def injectFaultConv2DBackprop(inputs):
-	"Function to call injectFault on Conv2DBackprop"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Conv2DBackProp")
-	raise NotImplementedError("Conv2DBackProp")
-
-def injectFaultApplyAdam(inputs):
-	"Function to call injectFault on ApplyAdam"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ApplyAdam")
-	raise NotImplementedError("ApplyAdam")
-	
-def injectFaultSelect(inputs):
-	"Function to call injectFault on Select"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Select")
-	raise NotImplementedError("Select")
-
-def injectFaultMerge(inputs):
-	"Function to call injectFault on Merge"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Merge")
-	raise NotImplementedError("Merge")
-
-def injectFaultTranspose(inputs):
-	"Function to call injectFault on Transpose"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Transpose")
-	raise NotImplementedError("Transpose")
-
-def injectFaultTranspose(inputs):
-	"Function to call injectFault on Transpose"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Transpose")
-	raise NotImplementedError("Transpose")
-
-def injectFaultGather(inputs):
-	"Function to call injectFault on Gather"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Gather")
-	raise NotImplementedError("Gather")
-
-def injectFaultUnsortedSegmentSum(inputs):
-	"Function to call injectFault on UnsortedSegmentSum"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator UnsortedSegmentSum")
-	raise NotImplementedError("UnsortedSegmentSum")
-
-def injectFaultInvertPermutation(inputs):
-	"Function to call injectFault on InvertPermutation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator InvertPermuation")
-	raise NotImplementedError("InvertPermutation")
-	
-def injectFaultApplyGradientDescent(inputs):
-	"Function to call injectFault on applying gradient descent"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ApplyGradientDescent")
-	raise NotImplementedError("ApplyGradientDescent")
-
-def injectFaultZerosLike(inputs):
-	"Function to call injectFault on ZerosLike"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ZerosLike")
-	raise NotImplementedError("ZerosLike")
-	
-def injectFaultPreventGradient(inputs):
-	"Function to call injectFault on PreventGradient"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator PreventGradient")
-	raise NotImplementedError("PreventGradient")
-	
-def injectFaultSSSmcEWL(inputs):
-	"Function to call injectFault on SoftSparseMax.."
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator SoftSparseMax")
-	raise NotImplementedError("SoftSparseMax")
-	
-def injectFaultAll(a):
-	"Function to call injectFault on All operation"
-	# FIXME: Implement this functionality
-	# Not clear what this does - TF doc is silent about this
-	logging.debug("Calling Operator All")
-	raise NotImplementedError("All")
-	
-def injectFaultAssert(a):
-	"Function to call injectFault on Assert operation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Assert")
-	raise NotImplementedError("Assert")
-	
-def injectFaultLess(a):
-	"Function to call injectFault on Less operation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Less")
-	raise NotImplementedError("Less")
-
-def injectFaultFSRHOP(a):
-	"Function to call Inject fault on FertileResource Op"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator FSRHOP")
-	raise NotImplementedError("FSRHOP")
-
-def injectFaultL2Loss(a):
-	"Function to call Inject fault on L2Loss operation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator L2Loss")
-	raise NotImplementedError("L2Loss")
-
-def injectFaultApplyMomentum(a):
-	"Function to call Inject fault on ApplyMomentum operation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator ApplyMomentum")
-	raise NotImplementedError("ApplyMomentum")
-
-def injectFaultAssignAdd(a):
-	"Function to call Inject fault on AssignAdd operation"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator AssignAdd")
-	raise NotImplementedError("AssignAdd")
-
-def injectFaultFloor(a):
-	"Function to call injectFault on Floor"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Floor")
-	raise NotImplementedError("Floor")
-
-def injectFaultSqueeze(a):
-	"Function to call injectFault on Squeeze"
-	# FIXME: Implement this functionality
-	logging.debug("Calling Operator Squeeze")
-	raise NotImplementedError("Squeeze")
 
 ##### End of unimplemented functions ###################
 	
@@ -1115,27 +846,19 @@ opTable = {
 			"Fill": injectFaultFill,
 			"Size": injectFaultSize,
 			"FloorMod" : injectFaultFloorMod,
-			"DynamicStitch" : injectFaultDynamicStitch,
 			"Maximum" : injectFaultMaximum,
 			"Max" : injectFaultMaximum,	# FIXME: Not sure if Max is a synonymn of Maximum or a new operation
 			"Minimum" : injectFaultMinimum,
 			"Min" : injectFaultMinimum,	# FIXME: Not sure if Min is a synonymn of Minimum or a new operation
-			"FloorDiv" : injectFaultFloorDiv,
 			"Reshape" : injectFaultReshape,
 			"OneHot": injectFaultOneHot,
-			"Tile" : injectFaultTile,
 			"ConcatV2" : injectFaultConcatV2,
-			"ConcatOffset" : injectFaultConcatOffset,
 			"BiasAdd" : injectFaultBiasAdd,
-			"Split" : injectFaultSplit,
 			"Sigmoid" : injectFaultSigmoid,
 			"Tanh" : injectFaultTanh,
 			"Softmax" : injectFaultSoftmax,
-			"SoftmaxCrossEntropyWithLogits" : injectFaultSoftmaxCEWL,
 			"Pack" : injectFaultPack,
-			"Slice" : injectFaultSlice,
 			"StridedSlice" : injectFaultStridedSlice,
-			"BroadcastGradientArgs" : injectFaultBroadcastGA,
 			"Neg" : injectFaultNeg,
 			"Pow" : injectFaultPow,
 			"Abs" : injectFaultAbs,
@@ -1148,58 +871,19 @@ opTable = {
 			"NotEqual" : injectFaultNotEqual,
 			"LessEqual" : injectFaultLessEqual,
 			"GreaterEqual" : injectFaultGreaterEqual,
-			"TruncatedNormal" : injectFaultTruncatedNormal,
 			"Conv2D" : injectFaultConv2D,
 			"Relu" : injectFaultRelu, 
 			"MaxPool" : injectFaultMaxPool, 
 			"RandomUniform" : injectFaultRandomUniform,
-			"RandomUniformInt" : injectFaultRandomUniformInt,
-			"RandomStandardNormal" : injectFaultRandomStandardNormal,
-			"Floor" : injectFaultFloor,
 			"Rsqrt" : injectFaultRsqrt,
 			"Log" : injectFaultLog,
-			"RefSwitch" : injectFaultRefSwitch,
 			"NearestNeighbors" : injectFaultNN, 
-			"Prod" : injectFaultProd,
-			"Squeeze" : injectFaultSqueeze,
-			"Unique" : injectFaultUnique,
-			"Reciprocal" : injectFaultReciprocal,
-			"ScatterAdd" : injectFaultScatterAdd,
-			"ReluGrad" : injectFaultReluGrad,
-			"MaxPoolGrad" : injectFaultMaxPoolGrad,
-			"TanhGrad" : injectFaultTanhGrad,
-			"SigmoidGrad" : injectFaultSigmoidGrad,
-			"BiasAddGrad" : injectFaultBiasAddGrad,
-			"ShapeN" : injectFaultShapeN,
-			"AddN" : injectFaultAddN,
-			"Conv2DBackpropInput" : injectFaultConv2DBackprop,
-			"Conv2DBackpropFilter" : injectFaultConv2DBackprop,
-			"ApplyAdam" : injectFaultApplyAdam,
-			"Select" : injectFaultSelect,
-			"Switch" : injectFaultSwitch,
-			"Merge" : injectFaultMerge,
-			"Transpose" : injectFaultTranspose,
-			"Gather" : injectFaultGather,
-			"UnsortedSegmentSum" : injectFaultUnsortedSegmentSum,
-			"InvertPermutation" : injectFaultInvertPermutation,
 			# Casts are treated differently, so don't add them to this table ! See createInjectFaultCast
 			# "Cast" : injectFaultCast,		
 			"Mean" : injectFaultMean,
 			"Count_nonzero" : injectFaultCountNonZero,
 			"RealDiv" : injectFaultRealDiv,
 			"Greater" : injectFaultGreater,
-			"ApplyGradientDescent" : injectFaultApplyGradientDescent,
-			"ZerosLike" : injectFaultZerosLike,
-			"PreventGradient" : injectFaultPreventGradient,
-			"ExpandDims" : injectFaultExpandDims,
-			"SparseSoftmaxCrossEntropyWithLogits" : injectFaultSSSmcEWL,
-			"All" : injectFaultAll,
-			"Assert" : injectFaultAssert,
-			"Less" : injectFaultLess,
-			"FertileStatsResourceHandleOp" : injectFaultFSRHOP,
-			"L2Loss" : injectFaultL2Loss,
-			"ApplyMomentum" : injectFaultApplyMomentum,
-			"AssignAdd" : injectFaultAssignAdd,
 			"LRN" : injectFaultLRN,
 			"Elu" : injectFaultELU,
 			"Unknown": injectFaultGeneric		# Last operation

@@ -2,7 +2,7 @@
 # The fields here should correspond to the Fields in fiConfig.py
 
 # Deterministic fault seed for the injections
-# Seed: 1000
+Seed: 1000
 
 # Type of fault to be injected for Scalars and Tensors
 # Allowed values are: {None, Rand, Zero, Rand-element, bitFlip-element, bitFlip-tensor}
@@ -13,7 +13,7 @@
 #   5) bitFlip-element - single bit-flip over one data item in the output of the target op
 #   6) bitFlip-tensor - single bit-flip over all data items in the output of the target op 
 ScalarFaultType: None
-TensorFaultType: bitFlip-element 
+TensorFaultType: Rand
 
 
 # Add the list of Operations and their probabilities here
@@ -24,12 +24,20 @@ TensorFaultType: bitFlip-element
 
 Ops:
 # Choose operations which you want to inject
-  - ALL = 1.0 # Chooses all operations
+ # - ALL = 1.0 # Chooses all operations
+ # - IDENTITY = 1.0
+   - CONV2D = 1.0
+ # - RELU = 1.0
+  #- BIASADD = 1.0
+   #- MATMUL = 1.0
+  # - RESHAPE = 1.0
 #  - LRN = 1.0 # Choose one operation only; 
 # - EQUAL = 1.0
-#  - SOFT-MAX = 1.0
+ # - SOFT-MAX = 1.0
+ # - ARGMAX = 1.0
 # - DIV = 0.0 # This does not exist - and should be ignored (Test)
 # - SUB = -0.5 # This should raise an exception
+  #- Unknown = 1.0
 
 # How many times the set of above operations should be skipped before injection
 # SkipCount: 1
@@ -39,14 +47,16 @@ Ops:
 # This is required when you want to specify which operator to inject (e.g., the second Conv operator).
 # Below is an example, you need to specify the numbers according to your model.
 Instances: 
-  - CONV2D = 2   # This means there are two conv2d operations in the model
-  - MAX-POOL = 2
-  - RELU = 3
-  - BIASADD = 2
-  - RESHAPE = 1
-  - ADD = 3
-  - MATMUL = 3 
-
+   - CONV2D = 1   # This means there are two conv2d operations in the model
+  #- MAX-POOL = 1
+  # - RELU = 8
+  # - BIASADD = 8
+   #- RESHAPE = 1
+  #- ADD = 3
+  # - MATMUL = 3 
+ #   - SOFT-MAX = 1
+  #  - ARGMAX = 1
+    
 
 
 # There are three inject mode:
@@ -57,4 +67,4 @@ Instances:
 # In the second and third mode, you'll need to specify the instances of all the operators in the algorithm
 
 # Allowed values: 1) "errorRate"; 2) "dynamicInstance"; 3) "oneFaultPerRun" 
-InjectMode: "errorRate"
+InjectMode: "dynamicInstance"
